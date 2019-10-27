@@ -16,6 +16,11 @@
         name: 'dashboard',
         components: {
             BRow
+        },
+        data() {
+            return {
+
+            }
         }
     }
 </script>

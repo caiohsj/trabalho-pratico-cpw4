@@ -8,6 +8,10 @@
             <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav v-show="showFunctions">
                     <b-nav-item to="/dashboard">Dashboard</b-nav-item>
+                    <b-nav-item-dropdown text="Cadastros">
+                        <b-dropdown-item to="/categorias">Categorias</b-dropdown-item>
+                        <b-dropdown-item>Produtos</b-dropdown-item>
+                    </b-nav-item-dropdown>
                     <b-nav-item to="/about">About</b-nav-item>
                 </b-navbar-nav>
 
