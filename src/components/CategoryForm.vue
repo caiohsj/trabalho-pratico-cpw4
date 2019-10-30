@@ -1,6 +1,6 @@
 <template>
    <div>
-      <form>
+
          <div class="form-row">
             <div class="col-md-4 mb-3 form-row">
                <label for="validationDefault01">Descrição</label>
@@ -10,9 +10,9 @@
 
          <button class="btn btn-success mr-2" v-on:click="emitirEvento">Salvar</button>
          <router-link to="/categorias">
-            <button class="btn btn-danger" type="submit">Cancelar</button>
+            <button class="btn btn-danger" v-on:click="emitirEvento">Cancelar</button>
          </router-link>
-      </form>
+
    </div>
 </template>
 

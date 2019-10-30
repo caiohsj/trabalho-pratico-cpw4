@@ -38,10 +38,19 @@
                 categoryService.list()
                     .then((response) => {
                         this.categories = response.data;
+                        this.categories.sort(this.compare)
                     })
                     .catch((response) => {
                         console.log(response.data)
                     })
+            },
+
+            compare(a,b) {
+                if (a.id < b.id)
+                    return -1;
+                if (a.id > b.id)
+                    return 1;
+                return 0;
             }
         },
         watch: {
