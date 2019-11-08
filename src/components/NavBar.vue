@@ -10,7 +10,7 @@
                     <b-nav-item to="/dashboard">Dashboard</b-nav-item>
                     <b-nav-item-dropdown text="Cadastros">
                         <b-dropdown-item to="/categorias">Categorias</b-dropdown-item>
-                        <b-dropdown-item>Produtos</b-dropdown-item>
+                        <b-dropdown-item to="/products/category">Produtos</b-dropdown-item>
                     </b-nav-item-dropdown>
                     <b-nav-item to="/about">About</b-nav-item>
                 </b-navbar-nav>

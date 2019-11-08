@@ -10,7 +10,7 @@
         </b-row>
 
         <router-link to="/category/create">
-            <b-button class="btn btn-primary">Novo</b-button>
+            <b-button variant="primary">Nova</b-button>
         </router-link>
 
         <categorias-list v-bind:categories="categories"></categorias-list>
@@ -20,10 +20,12 @@
 <script>
     import CategoriasList from "../components/CategoriasList";
     import categoryService from "../services/category";
+    import {BButton} from 'bootstrap-vue'
     export default {
         name: "Categorias",
         components: {
-            CategoriasList
+            CategoriasList,
+            BButton
         },
         data() {
             return {

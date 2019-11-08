@@ -42,6 +42,23 @@ const router = new Router({
             }
         },
         {
+            path: '/products/category',
+            name: 'productsCategory',
+            component: () => import(/* webpackChunkName: "about" */ './views/ProductsCategory.vue'),
+            meta: {
+                authRequired: true
+            }
+        },
+        {
+            path: '/products/:idCategory/:page',
+            name: 'products',
+            props: true,
+            component: () => import(/* webpackChunkName: "about" */ './views/Products.vue'),
+            meta: {
+                authRequired: true
+            }
+        },
+        {
             path: '/about',
             name: 'about',
             component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),

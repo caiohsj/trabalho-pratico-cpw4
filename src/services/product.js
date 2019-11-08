@@ -1,7 +1,7 @@
 import http from './config.js'
 
 export default {
-    list: () => {
-        return http.get('/product/list')
+    list: (category, page) => {
+        return http.get('/product/list/'+category+"/"+page)
     }
 }

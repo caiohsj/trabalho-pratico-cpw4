@@ -1,35 +1,36 @@
 <template>
     <div>
-        <table class="table table-bordered ">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>Descrição</th>
-                <th width="15%">Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr v-for="category in categories" v-bind:key="category.id">
-                <td>{{category.id}}</td>
-                <td>{{category.description}}</td>
-                <td>
-                    <button class="btn btn-primary">Editar</button>
-                    <button class="btn btn-danger">Excluir</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+
+        <b-table :items="categories" :fields="fields" striped responsive="md">
+            <template v-slot:cell(Ação)="row" >
+                <b-button size="md" variant="primary" class="mr-2">
+                    Editar
+                </b-button>
+                <b-button size="md" variant="danger">
+                    Excluir
+                </b-button>
+            </template>
+        </b-table>
     </div>
 </template>
 
 <script>
 
+    import {BTable, BButton} from 'bootstrap-vue'
     export default {
         name: "CategoriasList",
         data() {
             return {
-
+                fields: [
+                    {key: "id", label: "ID"},
+                    {key: "description", label: "Descrição"},
+                    "Ação"
+                ]
             }
+        },
+        components: {
+            BTable,
+            BButton
         },
         props: [
             'categories'

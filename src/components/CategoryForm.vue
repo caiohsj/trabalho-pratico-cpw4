@@ -10,7 +10,7 @@
 
          <button class="btn btn-success mr-2" v-on:click="emitirEvento">Salvar</button>
          <router-link to="/categorias">
-            <button class="btn btn-danger" v-on:click="emitirEvento">Cancelar</button>
+            <button class="btn btn-danger">Cancelar</button>
          </router-link>
 
    </div>
@@ -29,7 +29,7 @@
         },
         methods: {
            emitirEvento(){
-              this.$emit('newCategory', this.category)
+                  this.$emit('newCategory', this.category)
            }
         }
     }
