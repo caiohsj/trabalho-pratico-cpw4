@@ -59,6 +59,14 @@ const router = new Router({
             }
         },
         {
+            path: '/product/create',
+            name: 'productCreate',
+            component: () => import(/* webpackChunkName: "about" */ './views/ProductCreate.vue'),
+            meta: {
+                authRequired: true
+            }
+        },
+        {
             path: '/about',
             name: 'about',
             component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),

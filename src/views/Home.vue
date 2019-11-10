@@ -5,6 +5,7 @@
                 <h3>Home
                     <small class="text-muted"> | Bem vindo</small>
                 </h3>
+                <router-link to="product/create">Novo</router-link>
             </div>
         </b-row>
     </div>
