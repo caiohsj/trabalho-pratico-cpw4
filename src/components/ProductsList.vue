@@ -8,7 +8,8 @@
         </b-link>
         <b-table striped hover :fields="fields" :items="products">
             <template v-slot:cell(Imagem)="row">
-                <img width="50" height="50" :src="`data:image/png;base64,${row.item.img}`" />
+                <img v-if="row.item.img" width="50" height="50" :src="`data:image/png;base64,${row.item.img}`" />
+                <p v-else>Sem Imagem</p>
             </template>
             <template v-slot:cell(Ação)="row" >
                 <b-button size="md" variant="primary" class="mr-2">

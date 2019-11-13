@@ -70,9 +70,9 @@
 
             <b-form-group label="Imagem do produto:">
                 <image-to-base64
-                        :maxSize ='100/1024'
+                        :maxSize ='1920/1080'
                         :previewImage='previewImage'
-                        @file-info='reciveFileInfo'
+                        @file-info='receiveFileInfo'
                         @size-error='sizeError'
                         @type-error='typeError'
                         class='upload-btn mb-3'>
@@ -111,7 +111,7 @@
                 categories: [],
                 options: [],
                 show: true,
-                previewImage:true
+                previewImage:true,
             }
         },
         methods: {
@@ -147,16 +147,16 @@
             getFiles(files){
                 console.log(files);
             },
-            reciveFileInfo(v) {
+            receiveFileInfo(v) {
                 // console.log(v)
                 this.fileInfo = v
                 v &&  this.uploadImage() //上传
             },
             sizeError(v) {
-                v && alert('Erro')
+                v && alert('Arquivo muito grande')
             },
             typeError(v) {
-                v && alert('Erro')
+                v && alert('Tipo de imagem não aceito')
             },
             uploadImage() {
                 if (this.fileInfo) {

@@ -13,11 +13,12 @@
 </template>
 
 <script>
+    import {BRow} from 'bootstrap-vue'
     import productService from "../services/product"
     import ProductsList from "../components/ProductsList";
     export default {
         name: "Products",
-        components: {ProductsList},
+        components: {ProductsList,BRow},
         data(){
           return {
             products: []
