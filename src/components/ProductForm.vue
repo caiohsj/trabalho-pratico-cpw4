@@ -68,31 +68,18 @@
                 ></b-form-input>
             </b-form-group>
 
-            <b-form-group label="Imagem do produto:">
-                <image-to-base64
-                        :maxSize ='1920/1080'
-                        :previewImage='previewImage'
-                        @file-info='receiveFileInfo'
-                        @size-error='sizeError'
-                        @type-error='typeError'
-                        class='upload-btn mb-3'>
-                </image-to-base64>
-            </b-form-group>
+            <b-form-file v-on:change="loadFile" class="mb-2"></b-form-file>
 
             <b-button type="submit" class="mr-1" variant="primary">Salvar</b-button>
             <b-button type="reset" variant="secondary">Limpar</b-button>
         </b-form>
-        <b-card class="mt-3" header="Form Data Result">
-            <pre class="m-0">{{ product }}</pre>
-        </b-card>
     </div>
 </template>
 
 <script>
     import Product from "../models/Product";
-    import {BForm, BFormGroup, BFormInput, BFormSelect, BButton, BCard} from 'bootstrap-vue'
+    import {BForm, BFormGroup, BFormInput, BFormSelect, BButton, BFormFile} from 'bootstrap-vue'
     import categoryService from "../services/category";
-    import imageToBase64 from 'vue-image-base64';
 
     export default {
         name: "ProductForm",
@@ -102,8 +89,7 @@
             BFormInput,
             BFormSelect,
             BButton,
-            BCard,
-            imageToBase64
+            BFormFile
         },
         data() {
             return {
@@ -144,24 +130,14 @@
             loadOptions(item) {
                 this.options.push({'value' : item.id, 'text' : item.description})
             },
-            getFiles(files){
-                console.log(files);
-            },
-            receiveFileInfo(v) {
-                // console.log(v)
-                this.fileInfo = v
-                v &&  this.uploadImage() //上传
-            },
-            sizeError(v) {
-                v && alert('Arquivo muito grande')
-            },
-            typeError(v) {
-                v && alert('Tipo de imagem não aceito')
-            },
-            uploadImage() {
-                if (this.fileInfo) {
-                    this.product.img = this.fileInfo.base64
+            loadFile(event){
+                var reader = new FileReader();
+                reader.readAsDataURL(event.target.files[0])
+                reader.onloadend = () => {
+                    this.product.img = reader.result
                     this.product.img = this.product.img.replace('data:image/jpeg;base64,', '')
+                    this.product.img = this.product.img.replace('data:image/png;base64,', '')
+                    this.product.img = this.product.img.replace('data:image/jpg;base64,', '')
                 }
             }
         },
